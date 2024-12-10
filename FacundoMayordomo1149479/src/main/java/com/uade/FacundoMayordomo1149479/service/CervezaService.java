@@ -24,6 +24,17 @@ public class CervezaService
         Optional<Proveedor> prov = proveedorRepository.findById(id_proveedor);
         Long id_estilo = cervezaDTO.getEstilo_id();
         Optional<Estilo> est = estiloRepository.findById(id_estilo);
+        if(prov.isPresent() && est.isPresent())
+        {
+            Cerveza nueva = Cerveza.builder()
+                    .estilo(est.get())
+                    .precio(cervezaDTO.getPrecio())
+                    .nombre(cervezaDTO.getNombre()).proveedor(prov.get()).porcentajeAlcohol(cervezaDTO.getPorcentajeAlcohol())
+                    .build();
+
+            return nueva;
+        }
+
         return null;
     }
 }
