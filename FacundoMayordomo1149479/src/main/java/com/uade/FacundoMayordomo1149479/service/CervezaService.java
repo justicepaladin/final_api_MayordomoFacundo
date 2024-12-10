@@ -8,7 +8,9 @@ import com.uade.FacundoMayordomo1149479.repository.CervezaRepository;
 import com.uade.FacundoMayordomo1149479.repository.EstiloRepository;
 import com.uade.FacundoMayordomo1149479.repository.ProveedorRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CervezaService
 {
@@ -36,5 +38,10 @@ public class CervezaService
         }
 
         return null;
+    }
+
+    public List<CervezaDTO> obtenerCervezas()
+    {
+        return cervezaRepository.findAll().stream().map(Cerveza::toDTO).collect(Collectors.toList());
     }
 }
