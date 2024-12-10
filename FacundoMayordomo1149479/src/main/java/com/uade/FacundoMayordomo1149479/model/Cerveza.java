@@ -19,5 +19,9 @@ public class Cerveza
     @Column(nullable = false) private int precio;
     @Column(nullable = false) private double porcentajeAlcohol;
 
+    @ManyToOne @JoinColumn(name = "proveedor_id") private Proveedor proveedor;
+
+    @ManyToOne @JoinColumn(name = "estilo_id") private Estilo estilo;
+
 
 }

@@ -3,6 +3,8 @@ package com.uade.FacundoMayordomo1149479.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Proveedor {
 
@@ -14,5 +16,8 @@ public class Proveedor {
 
     @Column(nullable = false) private String contacto;
 
-    
+    @OneToMany(mappedBy = "proveedor", fetch = FetchType.EAGER) private List<Cerveza> cervezas;
+
+
+
 }
