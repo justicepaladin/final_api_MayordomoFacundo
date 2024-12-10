@@ -5,7 +5,7 @@ const axiosClient = axios.create({
     timeout: 10000, 
 });
 
-
+/** Esto no es necesario ya que no se usa inicio de sesion, lo utilicé de mi TPO
 axiosClient.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("jwtToken");
@@ -18,5 +18,7 @@ axiosClient.interceptors.request.use(
         return Promise.reject(error);
     }
 );
+
+*/
 
 export default axiosClient;
