@@ -10,4 +10,6 @@ public interface CervezaRepository extends JpaRepository<Cerveza, Long>
 {
 
     Optional<List<Cerveza>> findCervezaByEstilo_Id(Long id);
+
+    Optional<Cerveza> findCervezaByNombreAndEstiloId(String nombre, Long estilo_id);
 }
