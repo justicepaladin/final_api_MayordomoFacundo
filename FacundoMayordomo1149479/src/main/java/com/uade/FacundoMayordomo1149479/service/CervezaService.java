@@ -7,17 +7,23 @@ import com.uade.FacundoMayordomo1149479.model.Proveedor;
 import com.uade.FacundoMayordomo1149479.repository.CervezaRepository;
 import com.uade.FacundoMayordomo1149479.repository.EstiloRepository;
 import com.uade.FacundoMayordomo1149479.repository.ProveedorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class CervezaService
 {
+    @Autowired
     private CervezaRepository cervezaRepository;
 
+    @Autowired
     private ProveedorRepository proveedorRepository;
 
+    @Autowired
     private EstiloRepository estiloRepository;
 
     public Cerveza agregarCerveza(CervezaDTO cervezaDTO)

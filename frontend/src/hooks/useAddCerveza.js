@@ -1,16 +1,19 @@
-import { useState, useEffect } from 'react';
-import axiosClient from './axiosClient';
+import { useState } from 'react'
+import axiosClient from './axiosClient'
 
-function AddCerveza()
-{
-    const nueva = async(nombre,precio,porcentaje,proveedor_id,estilo_id) => {
-        try {
-            const response = await axiosClient.post(`/cerveza/nueva`, {nombre,precio,porcentaje,proveedor_id,estilo_id});
-            return response.data;
-        } catch (error) {
-            console.log("Error al cargar las cervezas");
-        }
+const useAddCerveza = () => {
+  const [nueva, setNueva] = useState(null)
+
+  const addCerveza = async (cerveza) => {
+    try {
+      const response = await axiosClient.post('/cerveza/nueva', cerveza)
+      setNueva(response.data)
+    } catch (error) {
+      console.error('Error adding cerveza:', error)
     }
+  }
+
+  return { nueva, addCerveza }
 }
 
-export default AddCerveza;
+export default useAddCerveza
