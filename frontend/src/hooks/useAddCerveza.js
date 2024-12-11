@@ -6,6 +6,7 @@ const useAddCerveza = () => {
 
   const addCerveza = async (cerveza) => {
     try {
+        console.log(cerveza)
       const response = await axiosClient.post('/cerveza/nueva', cerveza)
       setNueva(response.data)
     } catch (error) {

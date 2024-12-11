@@ -25,9 +25,9 @@ function App() {
         {showForm ? 'Ocultar Formulario' : 'Agregar Cerveza'}
       </button>
       {showForm && <CervezaForm onAddCerveza={nueva} />}
+     
     </div>
   )
-
 
   
 }
