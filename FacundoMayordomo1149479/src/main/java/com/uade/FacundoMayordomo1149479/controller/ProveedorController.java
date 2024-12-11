@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/proveedor")
+@CrossOrigin(origins = "*")
 public class ProveedorController {
 
 
